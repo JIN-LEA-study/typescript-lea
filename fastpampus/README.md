@@ -26,3 +26,4 @@
 - browser : HTML을 동적으로 만들기 이해 JS를 해석하고 DOM을 제어할 수 있도록 하는 JS 런타임 환경
 - tsc lea.ts : lea.ts 파일을 js로 변경해줌
 - tsc -w
+- npx tsc --init
