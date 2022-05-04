@@ -1,15 +1,23 @@
 {
-  "name": "tsc-project",
+  "name": "TypeScript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JIN-LEA-study/typescript-lea.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "bugs": {
+    "url": "https://github.com/JIN-LEA-study/typescript-lea/issues"
+  },
+  "homepage": "https://github.com/JIN-LEA-study/typescript-lea#readme",
+  "devDependencies": {
     "typescript": "^4.6.4"
   }
 }
