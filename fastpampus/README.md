@@ -22,3 +22,7 @@
 - 전통적인 compiled Language와는 다른 점이 많다.
 - Interpreted Language : 컴파일 X, 컴파일러 X, 컴파일하는 시점 X, 코드 자체를 실행
 - TS editor -> TS Compiler -> Js Browser, Node.js
+- node.js : browser에서 Js를 사용할 수 있도록 떼어온 엔진
+- browser : HTML을 동적으로 만들기 이해 JS를 해석하고 DOM을 제어할 수 있도록 하는 JS 런타임 환경
+- tsc lea.ts : lea.ts 파일을 js로 변경해줌
+- tsc -w
