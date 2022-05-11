@@ -110,3 +110,28 @@ function 내함수2(x: nubmer | string) {
   let array: number[] = [];
   array[0] = x as number;
 }
+
+// type 변수로 사용
+
+type Animal = string | number | undefined;
+let 동물: Animal = "kim";
+
+type Animal2 = { name: string; age: number };
+let 동물2: Animal2 = { name: "kim", age: 20 };
+
+// 재할당은 불가하지만 오브젝트 수정은 가능
+
+const 출생지역 = { region: "seoul" };
+출생지역.region = "busan"; //변경가능
+
+// const 자료 수정 막기 (readonly)
+
+type Girlfriend = {
+  readonly name: string;
+};
+
+const 여친: Girlfriend = {
+  name: "엠버",
+};
+
+여친.name = "유라"; // 에러

@@ -78,3 +78,12 @@ function 내함수2(x) {
     let array = [];
     array[0] = x;
 }
+let 동물 = "kim";
+let 동물2 = { name: "kim", age: 20 };
+// 재할당은 불가하지만 오브젝트 수정은 가능
+const 출생지역 = { region: "seoul" };
+출생지역.region = "busan"; //변경가능
+const 여친 = {
+    name: "엠버",
+};
+여친.name = "유라";
