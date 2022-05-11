@@ -27,7 +27,7 @@ let 회원들5: number | string = 123;
 let 회원들6: (number | string)[] = [1, "2", 3];
 let 회원들7: { a: string | number } = { a: "123" };
 
-// 귀찮을 때 (any)
+// 귀찮을 때 (any) - 타입실드 해제문법
 
 let 이름1: any;
 이름1 = 123;
