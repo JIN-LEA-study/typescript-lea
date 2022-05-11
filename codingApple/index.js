@@ -37,3 +37,19 @@ let 나이2;
 // string | number + 1 (union type 비허용)
 let 나이3 = 1;
 나이3 = 1; //불가
+// function
+function 함수(x) {
+    return x * 2;
+}
+함수(30);
+// void (return 쓰기 싫은 함수에 씀, return 막아줌)
+function 함수2(x) {
+    1 + 1;
+}
+함수2(2);
+// 파라미터가 옵션인 경우
+function 함수3(x) { }
+함수3();
+// 같은 예시 (아래 위 동일한 코드)
+function 함수4(x) { }
+함수4(5);
