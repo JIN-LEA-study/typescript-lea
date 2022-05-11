@@ -5,6 +5,11 @@
 - [o] 타입스크립트를 쓰는 이유, 필수 문법
 - [o] 타입스크립트 기본 타입 정리
 - [o] 타입을 미리 정하기 애매할 때 (union type, any, unkonwn)
+- [o] 함수에 타입을 지정하는 방법, void
+- [o] 타입 확정하기 Narrowing, Assertion
+- [o] 타입도 변수에 담아 쓰세요. type 키워드 써서, readonly
+- [] literal types로 만드는 const 변수 유사품
+- [] 함수와 methods에 type alias 지정하는 법
 
 <b>study</b>
 
