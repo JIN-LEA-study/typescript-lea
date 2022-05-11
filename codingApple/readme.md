@@ -16,7 +16,7 @@ part 1 : 꼭 알아야 할 내용
 - [o] class 키워드 알아보기
 - [o] prototype 문법 짚어보기
 - [o] class 만들 때 타입 지정 가능
-- [] object에 타입 지정하려면 interface 사용
+- [o] object에 타입 지정하려면 interface 사용
 
 part 2 : 알면 도움은 되는 내용
 
@@ -52,3 +52,5 @@ part 2 : 알면 도움은 되는 내용
 - TypeScript constructor()는 필드값에 미리 있어야 this. 사용 가능
 - constructor() 파라미터 타입 지정 가능
 - class는 항상 복제되는게 obj이기 때문에 return 타입 지정을 할 이유는 없음
+- interface : extends로 복사 가능
+- & 기호 (intersection type) : 두 타입 모두 만족하는 타입
