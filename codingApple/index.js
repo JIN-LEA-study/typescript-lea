@@ -87,3 +87,4 @@ const 여친 = {
     name: "엠버",
 };
 여친.name = "유라"; // 에러
+let position = { x: 10, y: 20 };

@@ -135,3 +135,19 @@ const 여친: Girlfriend = {
 };
 
 여친.name = "유라"; // 에러
+
+// type 변수를 합칠 수도 있음
+
+type Name = string;
+type Age = number;
+
+type Person = Name | Age;
+
+// 연사자로 object 타입 합치기
+
+type PositionX = { x: number };
+type PositionY = { y: number };
+
+type NewType = PositionX & PositionY;
+
+let position: NewType = { x: 10, y: 20 };
