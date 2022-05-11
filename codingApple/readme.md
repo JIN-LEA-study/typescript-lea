@@ -52,5 +52,6 @@ part 2 : 알면 도움은 되는 내용
 - TypeScript constructor()는 필드값에 미리 있어야 this. 사용 가능
 - constructor() 파라미터 타입 지정 가능
 - class는 항상 복제되는게 obj이기 때문에 return 타입 지정을 할 이유는 없음
-- interface : extends로 복사 가능
+- interface : extends로 복사 가능 (외부 라이브러리의 경우 많이 사용)
 - & 기호 (intersection type) : 두 타입 모두 만족하는 타입
+- interface는 중복 선언 가능(합쳐짐), type은 중복선언 불가능(엄격)
