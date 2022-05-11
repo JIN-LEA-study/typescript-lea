@@ -79,3 +79,34 @@ function 함수3(x?: number): void {}
 function 함수4(x: number | undefined): void {}
 
 함수4(5);
+
+// 엄격하게 코드 짜는 방법
+
+function 함수5(x: number | string) {
+  if (typeof x === "string") {
+    return x + "1";
+  } else {
+    return x + 1;
+  }
+}
+
+함수5(3);
+
+// typeof
+
+function 내함수(x: number | string) {
+  let array: number[] = [];
+  if (typeof x === "number") {
+    array[0] = x;
+  } else {
+  }
+}
+
+내함수(123);
+
+// assertion (as)
+
+function 내함수2(x: nubmer | string) {
+  let array: number[] = [];
+  array[0] = x as number;
+}

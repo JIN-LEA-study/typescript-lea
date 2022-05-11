@@ -53,3 +53,28 @@ function 함수3(x) { }
 // 같은 예시 (아래 위 동일한 코드)
 function 함수4(x) { }
 함수4(5);
+// 엄격하게 코드 짜는 방법
+function 함수5(x) {
+    if (typeof x === "string") {
+        return x + "1";
+    }
+    else {
+        return x + 1;
+    }
+}
+함수5(3);
+// typeof
+function 내함수(x) {
+    let array = [];
+    if (typeof x === "number") {
+        array[0] = x;
+    }
+    else {
+    }
+}
+내함수(123);
+// assertion (as)
+function 내함수2(x) {
+    let array = [];
+    array[0] = x;
+}
