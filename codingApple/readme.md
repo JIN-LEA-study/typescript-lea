@@ -47,3 +47,5 @@ part 2 : 알면 도움은 되는 내용
 - 함수는 예측 가능한 값을 넣어야 함
 - 태그마다 Elemnet가 정해져 있음 (ex: button : HTMLButtonElement, h1 : HTMLHeadingElement)
 - class : obj 뽑는 기계
+- prototype : 유전자
+- prototype에 무언가를 추가하면 자식들이 사용이 가능. console.log를 통해 찍어볼 수 있다.
