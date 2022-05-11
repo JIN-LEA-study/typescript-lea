@@ -40,3 +40,15 @@ let 이름2: unknown;
 이름2 = [];
 
 let 변수: string = 이름2; //TS쉴드 가능
+
+// string + 1
+
+let 나이2: string | number;
+나이2 + 1;
+
+// string type + 1 (허용)
+// number type + 1 (허용)
+// string | number + 1 (union type 비허용)
+
+let 나이3: unknown = 1;
+나이3 = 1; //불가
