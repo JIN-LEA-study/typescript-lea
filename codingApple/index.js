@@ -86,4 +86,4 @@ const 출생지역 = { region: "seoul" };
 const 여친 = {
     name: "엠버",
 };
-여친.name = "유라";
+여친.name = "유라"; // 에러
