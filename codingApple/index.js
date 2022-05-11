@@ -104,3 +104,9 @@ function 가위바위보함수(a) {
     return ["가위"];
 }
 가위바위보함수("가위");
+// as const
+var 자료 = {
+    name: "kim",
+};
+function 자료예시함수(a) { }
+자료예시함수(자료.name);
