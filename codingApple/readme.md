@@ -2,6 +2,8 @@
 
 <b>Todo list</b>
 
+part 1 : 꼭 알아야 할 내용
+
 - [o] 타입스크립트를 쓰는 이유, 필수 문법
 - [o] 타입스크립트 기본 타입 정리
 - [o] 타입을 미리 정하기 애매할 때 (union type, any, unkonwn)
@@ -10,6 +12,11 @@
 - [o] 타입도 변수에 담아 쓰세요. type 키워드 써서, readonly
 - [] literal types로 만드는 const 변수 유사품
 - [] 함수와 methods에 type alias 지정하는 법
+- [] 타입스크립트로 HTML 변경과 조작할 때 주의점
+- [] class 키워드 알아보기
+- [] prototype 문법 짚어보기
+- [] class 만들 때 타입 지정 가능
+- [] object에 타입 지정하려면 interface 사용
 
 <b>study</b>
 
@@ -30,4 +37,6 @@
 - assertion (as) : x as number -> 왼쪽에 있는 변수에 number로 덮어서 써줭 (number로 인식) but 버그 추적 불가
 - assertion (as) : 1. Narrowiong 할 때 사용(복잡한 여러 타입이 있을 경우 사용) 2. 어떤 타입이 들어올지 100% 확실하게 알고 있을 때 사용
 - type alias : 타입 변수, 변수로 타입을 만들어서 사용, type alias 작명은 대문자로 시작하는게 국롤 (일반 변수와 차별화) or 영어대문자+type
-- const : const로 담은 object는 수정이 자유롭게 가능, - readonly : const 자료 수정도 막을 수 있음
+- const : const로 담은 object는 수정이 자유롭게 가능, - readonly : const 자료 수정도 막을 수 있음 but 실제 변환된 js 파일에는 에러가 없음. TS 에러는 에디터와 터미널에서만 존재
+- extend 하기 : type 합치기
+- 같은 이름의 type 변수는 재정의가 불가능 (엄격)
