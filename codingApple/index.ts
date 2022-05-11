@@ -151,3 +151,29 @@ type PositionY = { y: number };
 type NewType = PositionX & PositionY;
 
 let position: NewType = { x: 10, y: 20 };
+
+// Literal types 더 엄격한 타입지정 가능
+
+let 이름3: 123; // 123이라는 숫자만 들어올 수 있음
+
+let 접니다: "대머리" | "솔로";
+
+접니다 = "대머리"; // 에러안남
+접니다 = "솔로"; // 에러안남
+
+function 함수당(a: "hello") {}
+
+함수당("hello");
+
+function 엄격한함수(a: "hello"): 1 | 0 {
+  return 1;
+}
+엄격한함수("hello");
+
+// 가위바위보만 쓸 수 있고, 리턴할 수 있는 함수
+
+function 가위바위보함수(a: "가위" | "바위" | "보"): ("가위" | "바위" | "보")[] {
+  return ["가위"];
+}
+
+가위바위보함수("가위");
