@@ -32,3 +32,11 @@ let 회원들7: { a: string | number } = { a: "123" };
 let 이름1: any;
 이름1 = 123;
 이름1 = [];
+
+// unknown Type
+
+let 이름2: unknown;
+이름2 = 123;
+이름2 = [];
+
+let 변수: string = 이름2; //TS쉴드 가능
