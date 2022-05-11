@@ -13,7 +13,7 @@ part 1 : 꼭 알아야 할 내용
 - [o] literal types로 만드는 const 변수 유사품
 - [o] 함수와 methods에 type alias 지정하는 법
 - [o] 타입스크립트로 HTML 변경과 조작할 때 주의점
-- [] class 키워드 알아보기
+- [o] class 키워드 알아보기
 - [] prototype 문법 짚어보기
 - [] class 만들 때 타입 지정 가능
 - [] object에 타입 지정하려면 interface 사용
