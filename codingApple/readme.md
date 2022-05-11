@@ -10,13 +10,15 @@ part 1 : 꼭 알아야 할 내용
 - [o] 함수에 타입을 지정하는 방법, void
 - [o] 타입 확정하기 Narrowing, Assertion
 - [o] 타입도 변수에 담아 쓰세요. type 키워드 써서, readonly
-- [] literal types로 만드는 const 변수 유사품
+- [o] literal types로 만드는 const 변수 유사품
 - [] 함수와 methods에 type alias 지정하는 법
 - [] 타입스크립트로 HTML 변경과 조작할 때 주의점
 - [] class 키워드 알아보기
 - [] prototype 문법 짚어보기
 - [] class 만들 때 타입 지정 가능
 - [] object에 타입 지정하려면 interface 사용
+
+part 2 : 알면 도움은 되는 내용
 
 <b>study</b>
 
@@ -40,3 +42,4 @@ part 1 : 꼭 알아야 할 내용
 - const : const로 담은 object는 수정이 자유롭게 가능, - readonly : const 자료 수정도 막을 수 있음 but 실제 변환된 js 파일에는 에러가 없음. TS 에러는 에디터와 터미널에서만 존재
 - extend 하기 : type 합치기
 - 같은 이름의 type 변수는 재정의가 불가능 (엄격)
+- Literal types : 정해진 문자만 들어올 수 있음 (엄결)
