@@ -11,7 +11,7 @@ part 1 : 꼭 알아야 할 내용
 - [o] 타입 확정하기 Narrowing, Assertion
 - [o] 타입도 변수에 담아 쓰세요. type 키워드 써서, readonly
 - [o] literal types로 만드는 const 변수 유사품
-- [] 함수와 methods에 type alias 지정하는 법
+- [o] 함수와 methods에 type alias 지정하는 법
 - [] 타입스크립트로 HTML 변경과 조작할 때 주의점
 - [] class 키워드 알아보기
 - [] prototype 문법 짚어보기
@@ -43,3 +43,5 @@ part 2 : 알면 도움은 되는 내용
 - extend 하기 : type 합치기
 - 같은 이름의 type 변수는 재정의가 불가능 (엄격)
 - Literal types : 정해진 문자만 들어올 수 있음 (엄결)
+- as const : 효과1 object value값을 그대로 타입으로 지정, 효과2 object 속성들에 모두 readonly 붙여줌
+- 함수는 예측 가능한 값을 넣어야 함

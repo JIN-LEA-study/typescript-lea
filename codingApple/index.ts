@@ -187,3 +187,47 @@ var 자료 = {
 function 자료예시함수(a: "kim") {}
 
 자료예시함수(자료.name);
+
+// type alias
+
+type 함수타입 = (a: string) => number;
+
+// string 타입의 자료를 넣고, number 타입의 자료 리턴
+
+let 함수임: 함수타입 = function (a) {
+  return 10;
+};
+
+// obj 함수 지정
+let 회원정보 = {
+  name: "kim",
+  plusOne(a) {
+    return a + 1;
+  },
+  changeName: () => {},
+};
+
+회원정보.plusOne(1);
+
+//숙제
+
+type CutType = (x: string) => string;
+let cutZero: CutType = function (x) {
+  let result = x.replace(/^0+/, "");
+  return result;
+};
+
+function removeDash(x: string): number {
+  let result = x.replace(/-/g, "");
+  return parseFloat(result);
+}
+
+// 콜백함수
+
+function 함수임1(a) {
+  a();
+}
+
+function 함수임2() {}
+
+함수임1(함수임2);
