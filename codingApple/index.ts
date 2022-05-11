@@ -16,3 +16,19 @@ let 회원들4: { member1: string; member2: string } = {
   member1: "kim",
   member2: "park",
 };
+
+// 여러가지 타입을 넣고 싶을 때 (Union Type)
+
+let 회원들5: number | string = 123;
+회원들5 = 123;
+
+// array 안에 여러가지 타입 넣고 싶을 때
+
+let 회원들6: (number | string)[] = [1, "2", 3];
+let 회원들7: { a: string | number } = { a: "123" };
+
+// 귀찮을 때 (any)
+
+let 이름1: any;
+이름1 = 123;
+이름1 = [];
