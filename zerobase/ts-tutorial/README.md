@@ -9,3 +9,4 @@
 <b>type up study notes</b>
 
 - React.FC : 1. children props가 기본적으로 내장되어져 있다. 2.자동완성 3.치명적인 단점: default props가 제대로 작동되지 않을 수도 있다.
+- 함수형 컴포넌트는 Function/const React.FC 두가지 방법으로 만들 수 있다.
