@@ -146,7 +146,7 @@ var Cell = /*#__PURE__*/function () {
     this.position = position;
     this.piece = piece;
     this.isActive = false;
-    this._el = document.createElement("DIV");
+    this._el = document.createElement("div");
 
     this._el.classList.add("cell");
   }
@@ -189,13 +189,42 @@ var Cell = /*#__PURE__*/function () {
 
 exports.Cell = Cell;
 
-var Board = /*#__PURE__*/_createClass(function Board() {
-  _classCallCheck(this, Board);
+var Board = /*#__PURE__*/function () {
+  function Board() {
+    _classCallCheck(this, Board);
 
-  this.cells = [];
-  this._el = document.createElement("DIV");
-  this._el.className = "board";
-});
+    this.cells = [];
+    this._el = document.createElement("div");
+    this._el.className = "board";
+
+    for (var row = 0; row < 5; row++) {
+      var rowEl = document.createElement("div");
+      rowEl.className = "row";
+
+      this._el.appendChild(rowEl);
+
+      for (var col = 0; col < array.length; col++) {
+        var cell = new Cell({
+          row: row,
+          col: col
+        }, null);
+        this.cells.push(cell);
+        rowEl.appendChild(cell._el);
+      }
+    }
+  }
+
+  _createClass(Board, [{
+    key: "render",
+    value: function render() {
+      this.cells.forEach(function (v) {
+        return v.render();
+      });
+    }
+  }]);
+
+  return Board;
+}();
 
 exports.Board = Board;
 },{"./Piece":"src/Piece.ts"}],"src/Game.ts":[function(require,module,exports) {
@@ -218,6 +247,9 @@ var Game = /*#__PURE__*/_createClass(function Game() {
   _classCallCheck(this, Game);
 
   this.board = new Board_1.Board();
+  var boardContainer = document.querySelector(".board-container");
+  boardContainer.firstChild.remove();
+  boardContainer.appendChild(this.board._el);
 });
 
 exports.Game = Game;

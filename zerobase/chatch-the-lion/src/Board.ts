@@ -7,7 +7,7 @@ export interface Position {
 
 export class Cell {
   private isActive = false;
-  readonly _el: HTMLElement = document.createElement("DIV");
+  readonly _el: HTMLElement = document.createElement("div");
 
   constructor(public readonly position: Position, private piece: Piece) {
     this._el.classList.add("cell");
@@ -41,9 +41,25 @@ export class Cell {
 
 export class Board {
   cells: Cell[] = [];
-  _el: HTMLElement = document.createElement("DIV");
+  _el: HTMLElement = document.createElement("div");
 
   constructor() {
     this._el.className = "board";
+
+    for (let row = 0; row < 5; row++) {
+      const rowEl = document.createElement("div");
+      rowEl.className = "row";
+      this._el.appendChild(rowEl);
+
+      for (let col = 0; col < array.length; col++) {
+        const cell = new Cell({ row, col }, null);
+        this.cells.push(cell);
+        rowEl.appendChild(cell._el);
+      }
+    }
+  }
+
+  render() {
+    this.cells.forEach((v) => v.render());
   }
 }
