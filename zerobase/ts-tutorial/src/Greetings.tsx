@@ -3,10 +3,21 @@ import React from "react";
 
 type GreetingsProps = {
   name: string;
+  mark: string;
+  optional?: string;
 };
 
-const Greetings: React.FC<GreetingsProps> = ({ name }) => {
-  return <div>Hello, {name}</div>;
+function Greetings({ name, mark, optional }: GreetingsProps) {
+  return (
+    <div>
+      Hello, {name} {mark}
+      {optional && <p>{optional}</p>}
+    </div>
+  );
+}
+
+Greetings.defaultProps = {
+  mark: "!",
 };
 
 export default Greetings;
