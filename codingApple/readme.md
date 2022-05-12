@@ -1,4 +1,4 @@
-<h3>TypeScript</h3>
+<h3>TypeScript study with codingApple</h3>
 
 <b>Todo list</b>
 

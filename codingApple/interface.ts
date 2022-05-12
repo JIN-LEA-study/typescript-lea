@@ -31,3 +31,5 @@ let 선생 = { name: "kim", age: 20 };
 
 type Anunak = { name: string };
 type Cat = { age: number } & Animal; //두 타입 모두 만족해야 된다는 뜻
+
+//
