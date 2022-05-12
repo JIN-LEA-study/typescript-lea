@@ -193,6 +193,8 @@ var Board = /*#__PURE__*/_createClass(function Board() {
   _classCallCheck(this, Board);
 
   this.cells = [];
+  this._el = document.createElement("DIV");
+  this._el.className = "board";
 });
 
 exports.Board = Board;

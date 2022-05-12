@@ -41,4 +41,9 @@ export class Cell {
 
 export class Board {
   cells: Cell[] = [];
+  _el: HTMLElement = document.createElement("DIV");
+
+  constructor() {
+    this._el.className = "board";
+  }
 }
