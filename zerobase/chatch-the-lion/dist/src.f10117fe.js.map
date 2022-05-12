@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/Game.ts","src/index.ts"],"names":[],"mappings":";;;;;;ACAA,IAAA,MAAA,GAAA,OAAA,CAAA,QAAA,CAAA;;AAEA,IAAI,MAAA,CAAA,IAAJ;;;;;IDFa;;;;AAAb,OAAA,CAAA,IAAA,GAAA,IAAA","file":"src.f10117fe.js","sourceRoot":"..","sourcesContent":["export class Game {}\n","import { Game } from \"./Game\";\n\nnew Game();\n"]}
