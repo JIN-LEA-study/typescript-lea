@@ -1,11 +1,9 @@
 
 ### Study note
 - JavaScript -> TypeScript 적용시 주의 해야 할 것
-
   - 기능적인 변경은 절대 하지 말 것
   - 테스트 커버리지가 낮을 때는 함부로 타입스크립트를 적용하지 않을 것
   - 처음부터 타입을 엄격하게 적용하지 않을 것 (점직적으로 strict 레벨 증가)
-
 - // @ts-check : 자바스크립트 파일을 타입스크립트 효과
 - 터미널에 pwd : 프로젝트 위치 확인
 - 타입의 에러와 런타임의 에러는 독립적
@@ -14,3 +12,4 @@
 - 컴파일(compile) : ts files -> js files 변환하는 작업
 - node -v : 노드 버전 확인
 - npm i typescript -g -> tsc : ts file -> js file
+- 
