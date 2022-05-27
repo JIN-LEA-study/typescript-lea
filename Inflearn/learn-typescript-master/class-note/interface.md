@@ -41,7 +41,36 @@ let sum: SumFunction;
 sum = function(a: numver, b: number): number {
   return a + b;
 }
-
 ```
 
+### 인덱싱
+```ts
+// 인덱싱 타입도 정의할 수 있다
+interface StringArray {
+  [index: number]: string;
+}
 
+let arr:StringArray = ['a', 'b', 'c']
+arr[0]; // 'a'
+```
+
+### 딕셔너리 패턴
+```ts
+//RegExp : 정규표현식
+interface StringRegexDictionary {
+  [key: stirng]: RegExp;
+}
+
+let obj: StringRegexDictionary = {
+  sth: /abc/,
+  cssFile: /\.css$/,
+  jsFile: /\.js$/,
+}
+
+obj['cssFile'] = 'a' // error, RegExp를 접근해달라는 메세지가 뜸
+
+object.keys(obj).forEach(function(value){
+
+})
+
+```
