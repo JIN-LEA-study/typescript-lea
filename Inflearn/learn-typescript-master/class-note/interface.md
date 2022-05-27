@@ -74,3 +74,27 @@ object.keys(obj).forEach(function(value){
 })
 
 ```
+
+### 인터페이스 확장
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+//확장된 인터페이스
+interface Developer extends Person {
+  // name: string;
+  // age: number;
+  language: string;
+}
+
+// Person, Developer의 타입 모두 정의
+let capt: Developer = {
+  language: 'ts',
+  age: 100,
+  name: 'lea'
+}
+
+```
