@@ -20,3 +20,19 @@ function add (a: number, b: number): number {
 let result = add(10, '20');
 result.toLocaleString(); // 제공하는 API들을 바로바로 볼 수 있다.
 ```
+
+### 자바스크립트를 타입스크립트처럼 코딩하는 법
+
+```js
+// @ts-check
+
+/**
+ * @parram {number} a 첫번째 숫자
+ * @parram {number} b 첫번째 숫자
+ */
+
+function sum(a, b) {
+  return a + b;
+}
+sum (10, '20');
+```
