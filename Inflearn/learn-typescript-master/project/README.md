@@ -2,10 +2,19 @@
 
 ### study note
 
-- JavaScript -> TypeScript 적용시 주의 해야 할 전
+- JavaScript -> TypeScript 적용시 주의 해야 할 것
+
   - 기능적인 변경은 절대 하지 말 것
   - 테스트 커버리지가 낮을 때는 함부로 타입스크립트를 적용하지 않을 것
   - 처음부터 타입을 엄격하게 적용하지 않을 것 (점직적으로 strict 레벨 증가)
+
+- JavaScript project -> TypeScript 적용하기
+
+  1. 타입스크립트의 기본 환경 구성
+
+  - npm 초기화
+  - 타입스크립트 라이브러리 설치
+  - 타입스크립트 설정 파일 생성 및 기본 값 추가
 
 ### note
 
