@@ -39,10 +39,24 @@ let isDeathLoading = false;
 let isRecoveredLoading = false;
 
 // api
+
+/**
+ * @typedef {object} CovidSummary
+ * @property {Array<object>} Country
+ */
+
+/**
+ * @returns {Promise<CovidSummary>}
+ */
+
 function fetchCovidSummary() {
   const url = "https://api.covid19api.com/summary";
   return axios.get(url);
 }
+
+fetchCovidSummary().then((res) => {
+  console.log(res.Country);
+});
 
 function fetchCountryInfo(countryCode, status) {
   // params: confirmed, recovered, deaths
@@ -203,7 +217,6 @@ function setTotalConfirmedNumber(data) {
     0
   );
 }
-
 function setTotalDeathsByWorld(data) {
   deathsTotal.innerText = data.Countries.reduce(
     (total, current) => (total += current.TotalDeaths),
