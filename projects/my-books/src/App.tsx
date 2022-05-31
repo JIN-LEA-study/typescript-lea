@@ -1,7 +1,14 @@
 import React from "react";
 import { Routes } from "react-router-dom";
 import { BrowserRouter, Route } from "react-router-dom";
+
+// router page
 import Home from "./pages/Home";
+import Add from "./pages/Add";
+import Detail from "./pages/Detail";
+import Edit from "./pages/Edit";
+import Signin from "./pages/Signin";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (

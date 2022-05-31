@@ -4,6 +4,8 @@
 
 - [install] react-router-dom
 - [install] @types/react-router-dom
+- router page 만들기
+- [install] react-error-boundary
 
 ### study note
 
