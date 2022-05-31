@@ -9,6 +9,7 @@ const create = () => {
     reducer,
     composeWithDevTools(applyMiddleware(sagaMiddleware))
   );
+  sagaMiddleware.run(rootSaga);
   return store;
 };
 
