@@ -6,6 +6,8 @@
 - [install] @types/react-router-dom
 - router page 만들기
 - [install] react-error-boundary
+- [install] npm i redux react-redux redux-saga redux-devtools-extension redux-actions
+- [install] npm i @types/react-redux @types/redux-actions -D
 
 ### study note
 
