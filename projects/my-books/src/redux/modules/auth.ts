@@ -1,5 +1,5 @@
 // 인증관리
-import { createActions } from "redux-actions";
+import { createActions, handleActions } from "redux-actions";
 
 interface AuthState {
   token: string | null;
@@ -17,4 +17,33 @@ const prefix = "my-books/auth";
 
 //action
 
-export const {} = createActions("PENDING", "SUCCESS", "FAIL", { prefix });
+export const { pending, success, fail } = createActions(
+  "PENDING",
+  "SUCCESS",
+  "FAIL",
+  { prefix }
+);
+
+const reducer = handleActions<AuthState, string>(
+  {
+    PENDING: (state) => ({
+      ...state,
+      loading: true,
+      error: null,
+    }),
+    SUCCESS: (state, action) => ({
+      token: action.payload,
+      loading: false,
+      error: null,
+    }),
+    FAIL: (state, action: any) => ({
+      ...state,
+      loading: false,
+      error: action.payload,
+    }),
+  },
+  initialState,
+  { prefix }
+);
+
+export default reducer;
