@@ -8,6 +8,7 @@
 - [install] react-error-boundary
 - [install] npm i redux react-redux redux-saga redux-devtools-extension redux-actions
 - [install] npm i @types/react-redux @types/redux-actions -D
+- redux setting
 
 ### study note
 
