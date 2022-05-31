@@ -50,4 +50,4 @@ export default reducer;
 
 // saga
 
-export function* authSage() {}
+export function* authSaga() {}
