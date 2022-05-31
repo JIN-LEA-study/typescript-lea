@@ -1,5 +1,8 @@
+import { LoginReqType } from "./../../types";
 // 인증관리
 import { createActions, handleActions } from "redux-actions";
+import { put, takeEvery } from "redux-saga/effects";
+
 
 interface AuthState {
   token: string | null;
@@ -50,4 +53,20 @@ export default reducer;
 
 // saga
 
-export function* authSaga() {}
+export const { login, logout } = createActions("LOGIN", "LOGOUT", { prefix });
+
+function* loginSaga(action: Action<LoginReqType>) {
+  try {
+    yield put(pending());
+    const token
+  } catch () {
+
+  }
+}
+
+function* logoutSaga() {}
+
+export function* authSaga() {
+  yield takeEvery(`${prefix}/LOGIN`, loginSaga);
+  yield takeEvery(`${prefix}/LOGOUT`, logoutSaga);
+}
