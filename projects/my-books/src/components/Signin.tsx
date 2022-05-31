@@ -1,7 +1,6 @@
+import React from "react";
+import SigninContainer from "../conainers/SigninContainer";
+
 export default function Signin() {
-  return (
-    <div>
-      <h1>Signin</h1>
-    </div>
-  );
+  return <SigninContainer />;
 }
