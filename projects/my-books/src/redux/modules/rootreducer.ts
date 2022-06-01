@@ -18,4 +18,4 @@ const rootReducer = (history: History<unknown>) =>
     router: connectRouter(history),
   });
 
-export default reducer;
+export default rootReducer;
