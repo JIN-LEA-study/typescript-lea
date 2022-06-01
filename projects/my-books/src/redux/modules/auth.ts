@@ -1,15 +1,13 @@
-import { LoginReqType } from "./../../types";
-// 인증관리
+import { AnyAction } from "redux";
 import { createActions, handleActions } from "redux-actions";
-import { put, takeEvery } from "redux-saga/effects";
+import { takeEvery, put, call, select } from "redux-saga/effects";
+import { push } from "connected-react-router";
+
+import { AuthState, LoginReqType } from "../../types";
+import { getTokenFromState } from "../utils";
+// import { success as booksSuccess } from "./books";
 import UserService from "../../services/UserService";
 import TokenService from "../../services/TokenService";
-
-interface AuthState {
-  token: string | null;
-  loading: boolean;
-  error: Error | null;
-}
 
 const initialState: AuthState = {
   token: null,
@@ -17,18 +15,20 @@ const initialState: AuthState = {
   error: null,
 };
 
-const prefix = "my-books/auth";
+const options = {
+  prefix: "my-books/auth",
+};
 
-//action
-
-export const { pending, success, fail } = createActions(
+export const { success, pending, fail } = createActions(
+  {
+    SUCCESS: (token: string) => ({ token }),
+  },
   "PENDING",
-  "SUCCESS",
   "FAIL",
-  { prefix }
+  options
 );
 
-const reducer = handleActions<AuthState, string>(
+const reducer = handleActions<AuthState, any>(
   {
     PENDING: (state) => ({
       ...state,
@@ -36,41 +36,65 @@ const reducer = handleActions<AuthState, string>(
       error: null,
     }),
     SUCCESS: (state, action) => ({
-      token: action.payload,
+      ...state,
+      token: action.payload.token,
       loading: false,
       error: null,
     }),
-    FAIL: (state, action: any) => ({
+    FAIL: (state, action) => ({
       ...state,
       loading: false,
       error: action.payload,
     }),
   },
   initialState,
-  { prefix }
+  options
 );
 
 export default reducer;
 
-// saga
+export const { login, logout } = createActions(
+  {
+    LOGIN: ({ email, password }: LoginReqType) => ({
+      email,
+      password,
+    }),
+  },
+  "LOGOUT",
+  options
+);
 
-export const { login, logout } = createActions("LOGIN", "LOGOUT", { prefix });
+export function* sagas() {
+  yield takeEvery(`${options.prefix}/LOGIN`, loginSaga);
+  yield takeEvery(`${options.prefix}/LOGOUT`, logoutSaga);
+}
 
-function* loginSaga(action: Action<LoginReqType>) {
+interface LoginSagaAction extends AnyAction {
+  payload: LoginReqType;
+}
+
+function* loginSaga(action: LoginSagaAction) {
   try {
     yield put(pending());
-    const token = yield call(UserService.login, action.payload);
+    const token: string = yield call(UserService.login, action.payload);
     TokenService.set(token);
     yield put(success(token));
-    // push
+    yield put(push("/"));
   } catch (error) {
     yield put(fail(new Error(error?.response?.data?.error || "UNKNOWN_ERROR")));
   }
 }
 
-function* logoutSaga() {}
-
-export function* authSaga() {
-  yield takeEvery(`${prefix}/LOGIN`, loginSaga);
-  yield takeEvery(`${prefix}/LOGOUT`, logoutSaga);
+function* logoutSaga() {
+  try {
+    yield put(booksSuccess(null));
+    yield put(pending());
+    const token: string = yield select(getTokenFromState);
+    yield call(UserService.logout, token);
+  } catch (error) {
+    // console.log(error);
+  } finally {
+    TokenService.remove();
+    yield put(success(null));
+  }
 }
