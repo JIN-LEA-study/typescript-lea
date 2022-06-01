@@ -4,23 +4,12 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { RootState } from "../types";
 
-export default function Home() {
-  const dispatch = useDispatch();
-  const token = useSelector<RootState, string | null>(
-    (state) => state.auth.token
-  );
-
+const Home: React.FC = () => {
+  const token = useToken();
   if (token === null) {
     return <Redirect to="/signin" />;
   }
-  return (
-  <div>
-    <div>Home</div>
-    <button onClick={click}>logout</button>;
-  </div>;
-  );
+  return <ListContainer />;
+};
 
-  function click() {
-    dispatch(logout());
-  }
-}
+export default Home;
