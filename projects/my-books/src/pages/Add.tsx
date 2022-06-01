@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 import useToken from "../hooks/useToken";
-import AddContainer from "../conainers/AddContainer";
+import AddContainer from "../containers/AddContainer";
 
 const Add = () => {
   const token = useToken();

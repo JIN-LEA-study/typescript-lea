@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import SigninContainer from "../conainers/SigninContainer";
+import SigninContainer from "../containers/SigninContainer";
 import { RootState } from "../types";
 
 export default function Signin() {
