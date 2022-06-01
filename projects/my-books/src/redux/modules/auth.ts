@@ -92,7 +92,6 @@ function* logoutSaga() {
     const token: string = yield select(getTokenFromState);
     yield call(UserService.logout, token);
   } catch (error) {
-    // console.log(error);
   } finally {
     TokenService.remove();
     yield put(success(null));
