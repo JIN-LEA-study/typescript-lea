@@ -10,6 +10,7 @@
 - [install] @types/react-redux @types/redux-actions -D
 - redux setting
 - [install] @ant-design/icons
+- [install] connected react router
 
 ### study note
 
