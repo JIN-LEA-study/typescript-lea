@@ -1,3 +1,6 @@
+import { AnyAction, Reducer } from "redux";
+import { RouterState } from "connected-react-router";
+
 export type LoginReqType = {
   email: string;
   password: string;
@@ -5,6 +8,7 @@ export type LoginReqType = {
 
 export interface RootState {
   auth: AuthState;
+  router: Reducer<RouterState<unknown>, AnyAction;
 }
 
 export interface AuthState {
