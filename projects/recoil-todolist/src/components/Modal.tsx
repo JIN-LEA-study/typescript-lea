@@ -37,15 +37,16 @@ interface Props {
   isOpen: boolean;
   onClose: () => void;
   selector?: string;
+  children: React.ReactNode;
 }
 
-const Modal: React.FC<Props> = ({ isOpen, onClose, selector }) => {
+const Modal: React.FC<Props> = ({ children, isOpen, onClose, selector }) => {
   return (
     <CSSTransition in={isOpen} timeout={300} classNames="modal" unmountOnExit>
       <Portal selector={selector}>
         <Overlay>
           <Dim onClick={onClose} />
-          <Container></Container>
+          <Container>{children}</Container>
         </Overlay>
       </Portal>
     </CSSTransition>
