@@ -80,14 +80,16 @@ add(1, 2, 3);
 
 ### Polymorphism
 
-- poly : 많은, 다수
-- oprphos : 형태, 구조
-
+- poly : 많은, 다수 / oprphos : 형태, 구조
 - 여러가지 다른 구조 / 형태
-- generic이란 타입의 placeholder 같은 것
+
+#### Generic
+
+- generic이란 타입의 placeholder 같은 것이다
+- call signature를 작성할 때, 확실한 타입을 모를 때 generic을 사용한다.
+- generic을 사용하는 방법은 타입스크립트에게 generic을 사용하고 싶다고 먼저 알려줘야 한다.
 
 ```tsx
-
 // bad ex
 
 type SuperPrint = {
@@ -105,4 +107,14 @@ superPrint([1, 2, 3, 4]);
 superPrint([true, false, true]);
 superPrint(["a", "b", "c"]);
 superPrint([1,2, true, false]);
+```
+
+```tsx
+type SuperPrint = {
+  <TypePlaceholder>(arr: TypePlaceholder[]): TypePlaceholder;
+};
+
+const superPrint: SuperPrint = (arr) => arr[0];
+
+const d = superPrint([1, 2, true, false, "hello"]); // superPrint: <string | number | boolean> (arr (string | number | boolean)[] => void)
 ```
