@@ -77,3 +77,32 @@ const add: Add = (a, b, c?: number) => {
 add(1, 2);
 add(1, 2, 3);
 ```
+
+### Polymorphism
+
+- poly : 많은, 다수
+- oprphos : 형태, 구조
+
+- 여러가지 다른 구조 / 형태
+- generic이란 타입의 placeholder 같은 것
+
+```tsx
+
+// bad ex
+
+type SuperPrint = {
+    (arr: number[]): void;
+    (arr: boolean[]): void;
+    (arr: string[]): void;
+    (arr: (number|boolean)[]): void;
+
+}
+
+const superPrint: SuperPrint = (arr) => {
+  arr.forEach(i -> console.log(i))
+}
+superPrint([1, 2, 3, 4]);
+superPrint([true, false, true]);
+superPrint(["a", "b", "c"]);
+superPrint([1,2, true, false]);
+```
