@@ -80,7 +80,7 @@ add(1, 2, 3);
 
 ### Polymorphism
 
-- poly : 많은, 다수 / oprphos : 형태, 구조
+- poly : 많은, 다수 / morphos : 형태, 구조
 - 여러가지 다른 구조 / 형태
 
 #### Generic
