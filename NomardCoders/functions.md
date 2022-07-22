@@ -11,3 +11,69 @@ const add: Add = (a, b) => {
 ```
 
 - 프로그램을 디자인하면서 타입을 먼저 생각하고 코드를 구현해야 한다.
+
+### Overloading
+
+- 실제로 많은 오버로딩된 함수를 직접 작성하지는 않는다.
+- 어떻게 생겼는지 아는 것은 매우 중요하다.
+- **함수가 여러개의 call signatures를 가지고 있을 때 발생시킨다.**
+
+```tsx
+type Add = {
+  (a: number, b: number): number;
+  (a: number, b: string): number;
+};
+
+const add: Add = (a, b) => a + b; //err
+const add: Add = (a, b) => {
+  if (typeof b === "string") return a;
+  return a + b;
+}; //좋은 코드가 아님
+```
+
+```tsx
+Router.push({
+  path: "/home",
+  state: 1,
+}).push("/home"); //err
+```
+
+- 패키지나 라이브러리를 디자인 할 때 많은 사람들이 사용한다.
+
+```tsx
+type Config = {
+  path: string;
+  state: object;
+};
+type Push = {
+  (path: string): void;
+  (config: Config): void;
+};
+
+const push: Push = (config) => {
+  if (typeof config === "string") {
+    console.log(config);
+  } else {
+    console.log(config.path, config.state);
+  }
+};
+```
+
+```tsx
+type Add = {
+  (a: number, b: number): number;
+  (a: number, b: number, c: number): number;
+};
+
+const add: Add = (a, b, c) => {
+  return a + b; //err
+};
+
+const add: Add = (a, b, c?: number) => {
+  if (c) return a + b + c;
+  return a + b;
+};
+
+add(1, 2);
+add(1, 2, 3);
+```
