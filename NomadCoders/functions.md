@@ -118,3 +118,19 @@ const superPrint: SuperPrint = (arr) => arr[0];
 
 const d = superPrint([1, 2, true, false, "hello"]); // superPrint: <string | number | boolean> (arr (string | number | boolean)[] => void)
 ```
+
+### Generics Recap
+
+- generic은 개발자가 요구한 대로 signature를 생성해줄 수 있는 도구라고 생각하면 된다.
+
+```tsx
+SuperPrint = <T,>(a: T[]) => T;
+const superPrint: SuperPrint = (a) => a[0];
+const a = superPrint([1, 2, 3, 4]);
+```
+
+```tsx
+SuperPrint = <T, M>(a: T[], b: M) => T;
+const superPrint: SuperPrint = (a) => a[0];
+const a = superPrint([1, 2, 3, 4], "lea");
+```
