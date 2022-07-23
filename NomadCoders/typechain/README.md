@@ -1,4 +1,4 @@
-### TS
+### TypeScript로 블록체인 만들기
 
 - "include" : "src" 변경할 ts 폴더
 - "target" : "ES6" 변경할 JS version
