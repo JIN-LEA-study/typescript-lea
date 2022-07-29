@@ -23,9 +23,7 @@ function Circle({ bgColor }: CircleProps) {
 
 export default Circle;
 
-
-
-
+interface PlayerShape {
   name: string;
   age: number;
 }
