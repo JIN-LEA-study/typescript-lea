@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { setConstantValue } from "typescript";
 
 function App() {
   const [value, setValue] = useState("");
