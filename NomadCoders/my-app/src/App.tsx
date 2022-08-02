@@ -60,6 +60,7 @@ body {
 }
 a {
   text-decoration:none;
+  color: inherit; //부모로부터 가져옴
 }
 `;
 
