@@ -158,6 +158,7 @@ function Coin() {
       setLoading(false);
     })();
   }, [coinId]);
+
   return (
     <Container>
       <Header>
@@ -166,7 +167,7 @@ function Coin() {
         </Title>
         {/* <Title>Coin {coinId}</Title> */}
       </Header>
-      {loading ? <Loader>"Lading..."</Loader> : null}
+      {/* {loading ? <Loader>"Lading..."</Loader> : null} */}
       {loading ? (
         <Loader>Loading...</Loader>
       ) : (

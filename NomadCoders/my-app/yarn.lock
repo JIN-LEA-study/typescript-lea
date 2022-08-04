@@ -1712,6 +1712,15 @@
   "resolved" "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.0.10.tgz"
   "version" "4.0.10"
 
+"@tanstack/react-query@^4.0.10":
+  "integrity" "sha512-Wn5QhZUE5wvr6rGClV7KeQIUsdTmYR9mgmMZen7DSRWauHW2UTynFg3Kkf6pw+XlxxOLsyLWwz/Q6q1lSpM3TQ=="
+  "resolved" "https://registry.npmjs.org/@tanstack/react-query/-/react-query-4.0.10.tgz"
+  "version" "4.0.10"
+  dependencies:
+    "@tanstack/query-core" "^4.0.0-beta.1"
+    "@types/use-sync-external-store" "^0.0.3"
+    "use-sync-external-store" "^1.2.0"
+
 "@tootallnate/once@1":
   "integrity" "sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw=="
   "resolved" "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz"
@@ -1955,6 +1964,13 @@
   "version" "17.0.17"
   dependencies:
     "@types/react" "^17"
+
+"@types/react-query@^1.2.9":
+  "integrity" "sha512-xfVcv5zjC6fGf6axPyKxdXNm9RKK9OFzSIyZeCR3r9h4zDuqSpHc8ilTBtfQ1zU/uCx+tAsB+W6vzdCBMu1jtg=="
+  "resolved" "https://registry.npmjs.org/@types/react-query/-/react-query-1.2.9.tgz"
+  "version" "1.2.9"
+  dependencies:
+    "react-query" "*"
 
 "@types/react-router-dom@^5.3.3":
   "integrity" "sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw=="
@@ -7300,7 +7316,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   "version" "18.2.0"
 
-"react-query@^4.0.0":
+"react-query@*", "react-query@^4.0.0":
   "integrity" "sha512-qiW+Yvbl+EK8iwPDJAj4qWAKceh+g8Up8jxoNxJbzhV3bNheeyHF3EyynnkDO3S+CYgSwtCUFaP8vOjB62j7xQ=="
   "resolved" "https://registry.npmjs.org/react-query/-/react-query-4.0.0.tgz"
   "version" "4.0.0"
