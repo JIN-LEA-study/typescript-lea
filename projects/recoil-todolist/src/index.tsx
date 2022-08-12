@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -9,9 +9,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RecoilRoot>
-      <App />
-    </RecoilRoot>
+    <Suspense fallback={() => <p>Loading...</p>}>
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
+    </Suspense>
   </React.StrictMode>
 );
 
