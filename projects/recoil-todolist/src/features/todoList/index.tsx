@@ -54,8 +54,17 @@ interface Props {
 
 const MAX_TODO_LIST_LENGTH = 3;
 
-const TodoList: React.FC<Props> = () => {
-  return <div></div>;
+const TodoList: React.FC<Props> = ({ items }) => {
+  return (
+    <Base>
+      {items.slice(0, 3).map((item, idx) => (
+        <TodoItem key={item.id} done={item.done}>
+          {item.content}
+        </TodoItem>
+      ))}
+      {items.length > 3 && <EtcItem>{`그 외 ${items.length - 3}`}</EtcItem>}
+    </Base>
+  );
 };
 
 export default TodoList;
