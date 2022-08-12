@@ -1,6 +1,8 @@
 import React from "react";
 import { atom, selector, useRecoilValue } from "recoil";
 import axios from "axios";
+import { RecoilRoot } from "recoil";
+import Calender from "./components/Calender";
 
 const todoIdState = atom({
   key: "todoIdState",
@@ -21,12 +23,10 @@ const todoItemQuery = selector({
 });
 
 function App() {
-  const data = useRecoilValue(todoItemQuery);
   return (
-    <div>
-      {data.title}
-      {data.userId}
-    </div>
+    <RecoilRoot>
+      <Calender />
+    </RecoilRoot>
   );
 }
 
