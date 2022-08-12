@@ -1,7 +1,7 @@
-import React from "react";
+import { atom } from "recoil";
 
-const atom = () => {
-  return <div>atom</div>;
-};
-
-export default atom;
+export const todoFormModalOpenState = atom<boolean>({
+  // 할 일 등록 모달
+  key: "todoFormModalOpenState",
+  default: false,
+});
