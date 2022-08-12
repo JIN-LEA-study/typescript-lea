@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "@emotion/styled/macro";
 import Modal from "../../components/Modal";
+import { v4 as uuidv4 } from "uuid";
+import { useRecoilValue, useRecoilState, useRecoilCallback } from "recoil";
+import { selectedDateState, todoListState } from "../todoList/atom";
+import { todoFormModalOpenState } from "./atom";
+import { getSimpleDateFormat } from "../../utils";
 
 const ModalBody = styled.div`
   width: 100vw;
@@ -34,14 +39,54 @@ const InputTodo = styled.input`
 `;
 
 const TodoFormMoal: React.FC = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const [todo, setTodo] = useState<string>("");
   const handleClose = () => setIsOpen(false);
+
+  const reset = () => {
+    setTodo("");
+    inputRef.current?.focus();
+  };
+
+  const selectedDate = useRecoilValue(selectedDateState);
+  const todoList = useRecoilValue(todoListState);
+  const [isOpen, setIsOpen] = useRecoilState(todoFormModalOpenState);
+
+  const addTodo = useRecoilCallback(({ snapshot, set }) => {
+    const todoList = snapshot.getLoadable(todoListState).getValue();
+    const newTodo = {
+      id: uuidv4(),
+      content: todo,
+      done: false,
+      date: selectedDate,
+    };
+  });
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      addTodo();
+      reset();
+      handleClose();
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTodo(e.target.value);
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={handleClose}>
       <ModalBody>
         <Card>
-          <Date>2022-08-12</Date>
-          <InputTodo placeholder="새로운 이벤트" />
+          <Date>{getSimpleDateFormat(selectedDate)}</Date>
+          <InputTodo
+            ref={inputRef}
+            placeholder="새로운 이벤트"
+            onKeyPress={handleKeyPress}
+            value={todo}
+            onChange={handleChange}
+          />
         </Card>
       </ModalBody>
     </Modal>
@@ -49,3 +94,6 @@ const TodoFormMoal: React.FC = () => {
 };
 
 export default TodoFormMoal;
+function selectedDate(selectedDate: any): React.ReactNode {
+  throw new Error("Function not implemented.");
+}
