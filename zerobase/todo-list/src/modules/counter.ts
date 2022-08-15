@@ -13,6 +13,7 @@ type CounterState = {
   count: number;
 };
 
+//기본 초기값 설정
 const initailState: CounterState = {
   count: 0,
 };
