@@ -8,16 +8,21 @@ type TodoItemProps = {
 };
 
 function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
-  const handleToggle = () => onToggle(todo.id);
-  const handleRemove = () => onRemove(todo.id);
-
+  // CSSProperties 는 style 객체의 타입입니다.
   const textStyle: CSSProperties = {
-    textDecoration: todo.done ? "lne-through" : "none",
+    textDecoration: todo.done ? "line-through" : "none",
+  };
+  const removeStyle: CSSProperties = {
+    marginLeft: 8,
+    color: "red",
   };
 
-  const removeStyle: CSSProperties = {
-    color: "red",
-    marginLeft: 8,
+  const handleToggle = () => {
+    onToggle(todo.id);
+  };
+
+  const handleRemove = () => {
+    onRemove(todo.id);
   };
 
   return (
@@ -26,7 +31,7 @@ function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
         {todo.text}
       </span>
       <span onClick={handleRemove} style={removeStyle}>
-        (X)
+        <button>삭제</button>
       </span>
     </li>
   );
