@@ -57,11 +57,3 @@ const counter = createReducer<CounterState, CounterAction>(initialState, {
 });
 
 export default counter;
-
-// typesafe-actions 사용 후 코드 2
-const counter = createReducer<CounterState, CounterAction>(initialState)
-  .handleAction(INCREASE, (state) => ({ count: state.count + 1 }))
-  .handleAction(DECREASE, (state) => ({ count: state.count - 1 }))
-  .handleAction(INCREASE_BY, (state, action) => ({
-    count: state.count + action.payload,
-  }));
