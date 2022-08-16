@@ -56,3 +56,5 @@ function todos(state: TodosState, action: TodosAction): TodosState {
       return state;
   }
 }
+
+export default todos;
