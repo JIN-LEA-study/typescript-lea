@@ -1,7 +1,13 @@
 // typesafe-actions 사용 후 코드 1
 
-import { action, ActionType, createReducer } from "typesafe-actions";
-import { createStandardAction } from "typesafe-actions/dist/deprecated/create-standard-action";
+import {
+  deprecated,
+  action,
+  ActionType,
+  createReducer,
+} from "typesafe-actions";
+
+const { createStandardAction } = deprecated;
 
 const INCREASE = "counter/INCREASE" as const;
 const DECREASE = "counter/DECREASE" as const;

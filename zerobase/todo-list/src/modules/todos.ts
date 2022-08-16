@@ -1,6 +1,7 @@
-import { createStandardAction } from "typesafe-actions/dist/deprecated/create-standard-action";
-import { createReducer } from "typesafe-actions";
+import { deprecated, createReducer } from "typesafe-actions";
 import { ActionType } from "typesafe-actions";
+
+const { createStandardAction } = deprecated;
 
 // 액션 타입 선언
 const ADD_TODO = "todos/ADD_TODO" as const;
