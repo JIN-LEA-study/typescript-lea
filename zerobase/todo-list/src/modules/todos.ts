@@ -1,3 +1,7 @@
+import { createStandardAction } from "typesafe-actions/dist/deprecated/create-standard-action";
+import { createReducer } from "typesafe-actions";
+import { ActionType } from "typesafe-actions";
+
 // 액션 타입 선언
 const ADD_TODO = "todos/ADD_TODO" as const;
 const TOGGLE_TODO = "todos/TOGGLE_TODO" as const;
@@ -14,21 +18,17 @@ export const addTodo = (text: string) => ({
   },
 });
 
-export const toggleTodo = (id: number) => ({
-  type: TOGGLE_TODO,
-  payload: id,
-});
+export const toggleTodo = createStandardAction(TOGGLE_TODO)<number>();
+export const removeTodo = createStandardAction(REMOVE_TODO)<number>();
 
-export const removeTodo = (id: number) => ({
-  type: REMOVE_TODO,
-  payload: id,
-});
+const actions = {
+  addTodo,
+  toggleTodo,
+  removeTodo,
+};
 
 // 모든 액션 객체들에 대한 타입 준비
-type TodosAction =
-  | ReturnType<typeof addTodo>
-  | ReturnType<typeof toggleTodo>
-  | ReturnType<typeof removeTodo>;
+type TodosAction = ActionType<typeof actions>;
 
 // 상태에서 사용 할 할 일 항목 데이터 타입 정의
 export type Todo = {
@@ -44,29 +44,43 @@ export type TodosState = Todo[];
 const initialState: TodosState = [];
 
 // 리듀서 작성
-function todos(
-  state: TodosState = initialState,
-  action: TodosAction
-): TodosState {
-  switch (action.type) {
-    case ADD_TODO:
-      return state.concat({
-        // action.payload 객체 안의 값이 모두 유추됩니다.
-        id: action.payload.id,
-        text: action.payload.text,
-        done: false,
-      });
-    case TOGGLE_TODO:
-      return state.map((todo) =>
-        // payload 가 number 인 것이 유추됩니다.
-        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
-      );
-    case REMOVE_TODO:
-      // payload 가 number 인 것이 유추됩니다.
-      return state.filter((todo) => todo.id !== action.payload);
-    default:
-      return state;
-  }
-}
+// function todos(
+//   state: TodosState = initialState,
+//   action: TodosAction
+// ): TodosState {
+//   switch (action.type) {
+//     case ADD_TODO:
+//       return state.concat({
+//         // action.payload 객체 안의 값이 모두 유추됩니다.
+//         id: action.payload.id,
+//         text: action.payload.text,
+//         done: false,
+//       });
+//     case TOGGLE_TODO:
+//       return state.map((todo) =>
+//         // payload 가 number 인 것이 유추됩니다.
+//         todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+//       );
+//     case REMOVE_TODO:
+//       // payload 가 number 인 것이 유추됩니다.
+//       return state.filter((todo) => todo.id !== action.payload);
+//     default:
+//       return state;
+//   }
+// }
+
+const todos = createReducer<TodosState, TodosAction>(initialState, {
+  [ADD_TODO]: (state, action) =>
+    state.concat({
+      ...action.payload,
+      done: false,
+    }),
+  [TOGGLE_TODO]: (state, action) =>
+    state.map((todo) =>
+      todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+    ),
+  [REMOVE_TODO]: (state, action) =>
+    state.filter((todo) => todo.id !== action.payload),
+});
 
 export default todos;

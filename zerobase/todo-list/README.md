@@ -44,3 +44,48 @@ const counter = createReducer<CounterState, CounterAction>(initialState)
     count: state.count + action.payload,
   }));
 ```
+
+- typesafe-actions 리팩토링
+
+```tsx
+function todos(
+  state: TodosState = initialState,
+  action: TodosAction
+): TodosState {
+  switch (action.type) {
+    case ADD_TODO:
+      return state.concat({
+        // action.payload 객체 안의 값이 모두 유추됩니다.
+        id: action.payload.id,
+        text: action.payload.text,
+        done: false,
+      });
+    case TOGGLE_TODO:
+      return state.map((todo) =>
+        // payload 가 number 인 것이 유추됩니다.
+        todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+      );
+    case REMOVE_TODO:
+      // payload 가 number 인 것이 유추됩니다.
+      return state.filter((todo) => todo.id !== action.payload);
+    default:
+      return state;
+  }
+}
+```
+
+```tsx
+const todos = createReducer<TodosState, TodosAction>(initialState, {
+  [ADD_TODO]: (state, action) =>
+    state.concat({
+      ...action.payload,
+      done: false,
+    }),
+  [TOGGLE_TODO]: (state, action) =>
+    state.map((todo) =>
+      todo.id === action.payload ? { ...todo, done: !todo.done } : todo
+    ),
+  [REMOVE_TODO]: (state, action) =>
+    state.filter((todo) => todo.id !== action.payload),
+});
+```
