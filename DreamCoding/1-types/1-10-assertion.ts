@@ -16,7 +16,7 @@
     return undefined;
   }
   const numbers = findNumbers()!;
-  numbers.push(2); // 😱
+  numbers!.push(2); // 😱
 
-  const button = document.querySelector('class')!;
+  const button = document.querySelector("class")!;
 }
